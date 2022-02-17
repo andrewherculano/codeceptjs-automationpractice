@@ -8,13 +8,15 @@ setHeadlessWhen(process.env.HEADLESS);
 setCommonPlugins();
 
 exports.config = {
-  tests: './*_test.js',
+  tests: './scenarios/*_test.js',
   output: './output',
   helpers: {
     Playwright: {
       url: 'http://automationpractice.com/index.php',
       show: true,
-      browser: 'chromium'
+      browser: 'chromium',
+      waitForTimeout: 5000,
+      timeout: 10000
     }
   },
   include: {
