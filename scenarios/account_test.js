@@ -1,46 +1,55 @@
+const faker = require('faker')
+
 Feature('Account');
 
-// Scenario('Verificar email invalido', ({ I }) => {
-//    I.amOnPage('/')
-//    I.click('.login')
-//    I.waitForElement('#SubmitCreate')
-//    I.click('#SubmitCreate')
-//    I.wait(5)
-//    I.see('Invalid email address.')
-// });
+Scenario('Verificar email invalido', ({ I }) => {
+   I.amOnPage('/')
+   I.click('.login')
+   I.waitForElement('#SubmitCreate')
+   I.click('#SubmitCreate')
+   I.wait(5)
+   I.see('Invalid email address.')
+});
 
 Scenario('Criar conta', ({ I }) => {
-   const randomNumber = Math.random() * 100
+   const email = faker.internet.email()
+   const firstName = faker.name.firstName()
+   const lastName = faker.name.lastName()
+   const password = faker.internet.password()
+   const adress = faker.address.streetName()
+   const city = faker.address.city()
+   const zipCode = faker.address.zipCode()
+   const phoneNumber = faker.phone.phoneNumberFormat()
 
    I.amOnPage('/')
    I.click('.login')
    I.waitForElement('#SubmitCreate')
-   I.fillField('#email_create', `emailteste${randomNumber}@email.com`)
+   I.fillField('#email_create', email)
    I.click('#SubmitCreate')
    I.wait(5)
 
    I.see('CREATE AN ACCOUNT')
    I.click('#id_gender2')
 
-   I.fillField('#customer_firstname', 'Andrew')
-   I.fillField('#customer_lastname', 'Silva')
+   I.fillField('#customer_firstname', firstName)
+   I.fillField('#customer_lastname', lastName)
 
-   I.fillField('#passwd', secret('q1w2e3'))
+   I.fillField('#passwd', secret(password))
 
    I.scrollTo('#address1')
 
    I.selectOption('#days', '1')
    I.selectOption('#months', '3')
-   I.selectOption('#years', '2001')
+   I.selectOption('#years', '1994')
 
    I.scrollPageToBottom()
 
-   I.fillField('#address1', 'Beco Hexagonal, 001')
-   I.fillField('#city', 'Jundiaí')
+   I.fillField('#address1', adress)
+   I.fillField('#city', city)
    I.selectOption('#id_state', 'California')
-   I.fillField('#postcode', '00000')
+   I.fillField('#postcode', zipCode)
 
-   I.fillField('#phone_mobile', '1198828837')
+   I.fillField('#phone_mobile', phoneNumber)
 
    I.click('#submitAccount')
 

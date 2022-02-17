@@ -9,7 +9,8 @@
   "author": "andrew herculano",
   "license": "ISC",
   "devDependencies": {
-    "codeceptjs": "^3.3.0"
+    "codeceptjs": "^3.3.0",
+    "faker": "^5.5.3"
   },
   "dependencies": {
     "playwright": "^1.19.1"

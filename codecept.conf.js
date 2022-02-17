@@ -17,7 +17,7 @@ exports.config = {
       browser: 'chromium',
       waitForTimeout: 5000,
       timeout: 20000,
-      windowSize: '900x900'
+      windowSize: '920x800'
     }
   },
   include: {
