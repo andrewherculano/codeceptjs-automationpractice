@@ -8,6 +8,7 @@ setHeadlessWhen(process.env.HEADLESS);
 setCommonPlugins();
 
 exports.config = {
+  name: 'automation-practice',
   tests: './scenarios/*_test.js',
   output: './output',
   helpers: {
@@ -18,7 +19,7 @@ exports.config = {
       waitForTimeout: 5000,
       timeout: 20000,
       windowSize: '1200x800',
-      show: true
+      show: true,
     }
   },
   include: {
@@ -26,8 +27,8 @@ exports.config = {
     homePage: './pages/home_page.js',
     registerPage: './pages/register_page.js',
     createUserPage: './pages/create_user_page.js',
+    loginPage: './pages/login_page.js'
   },
   bootstrap: null,
   mocha: {},
-  name: 'automation-practice'
 }

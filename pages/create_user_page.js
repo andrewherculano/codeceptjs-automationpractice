@@ -21,11 +21,11 @@ module.exports = {
   messages: {
   },
   labels: {
-    titlePage: 'CREATE AN ACCOUNT',
-    titleMyAccount: 'MY ACCOUNT'
+    userName: '.header_user_info',
+    titleCreateUserPage: 'CREATE AN ACCOUNT'
   },
   fillFieldsCreateUser(firstName, lastName, password, adress, city, phoneNumber) {
-    I.see(this.labels.titlePage)
+    I.see(this.labels.titleCreateUserPage)
 
     I.click(this.buttons.genderFemale)
 
@@ -49,9 +49,9 @@ module.exports = {
 
     I.fillField(this.fields.phoneNumber, phoneNumber)
   },
-  createUser() {
+  createUser(firstName, lastName) {
     I.click(this.buttons.submitAccount)
     I.wait(5)
-    I.see(this.labels.titleMyAccount)
+    I.see(`${firstName} ${lastName}`, this.labels.userName)
   }
 }
